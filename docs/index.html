@@ -7,13 +7,19 @@
 <body>
     <h1>Это мой проект</h1>
     <p>Создан в пятницу, 24 апреля 2026.</p>
-    <button onclick="loadFact()">Получить факт о DevOps</button>
+    <button onclick="showFact()">Получить факт о DevOps</button>
     <p id="fact"></p>
     <script>
-        async function loadFact() {
-            const r = await fetch('/api/fact');
-            const d = await r.json();
-            document.getElementById('fact').textContent = d.fact;
+        const facts = [
+            "Docker выпущен в 2013 году.",
+            "80% контейнеров в облаке — Docker.",
+            "Nginx обрабатывает более 500 млн сайтов.",
+            "CI/CD сокращает деплой с дней до минут.",
+            "Первая система версий — SCCS, 1972 год."
+        ];
+        function showFact() {
+            const f = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById('fact').textContent = f;
         }
     </script>
 </body>
