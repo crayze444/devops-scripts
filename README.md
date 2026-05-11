@@ -1,8 +1,15 @@
-# devops-scripts
-# Мои первые DevOps-скрипты
+# DevOps-проект: сайт с CI/CD и мониторингом
 
-Этот репозиторий создан в рамках обучения DevOps с нуля.
+Стек: Linux, Docker, Nginx, GitHub Actions, Prometheus + Grafana.
 
-## Что внутри:
--`hello.sh` - приветственный скрипт с информацией о системе.
-- `instal_nginx.sh` - автоматическая установка и запуск Nginx.
+## Структура
+- `docs/` — сайт
+- `monitoring/` — Prometheus + Grafana
+- `scripts/` — автоматизация
+- `Dockerfile` — сборка образа
+- `.github/workflows/` — CI/CD
+
+## Сайт
+https://crayze444.github.io/devops-scripts/
+
+## Запуск
