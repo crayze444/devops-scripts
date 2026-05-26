@@ -1,0 +1,25 @@
+---
+- name: Установка Nginx и пользователя
+  hosts: servers
+  become: yes
+  tasks:
+    - name: Установить Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Создать пользователя devops
+      user:
+        name: devops
+        state: present
+        shell: /bin/bash
+
+    - name: Скопировать index.html
+      copy:
+        src: /home/crayze/my-awesome-site/docs/index.html
+        dest: /var/www/html/index.html
+    - name: Запустить Nginx
+      command: nginx
+      args:
+        creates: /var/run/nginx.pid
+

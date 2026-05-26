@@ -1,27 +1,54 @@
-# 🚀 Личный DevOps-проект
+# 🚀 DevOps Portfolio: Полный цикл автоматизации
 
-[![Website](https://img.shields.io/badge/Site-Live-brightgreen)](https://crayze444.github.io/devops-scripts/)
-[![Docker Image](https://img.shields.io/badge/Docker%20Image-ghcr.io-blue)](https://github.com/crayze444/devops-scripts/pkgs/container/devops-scripts%2Fmy-site)
+Проект демонстрирует навыки построения CI/CD, контейнеризации, оркестрации и мониторинга.
 
-Полный цикл автоматизации: от кода до деплоя и мониторинга.
+## 🛠️ Технологический стек
+- **Linux** (Ubuntu, WSL2, Bash, Systemd)
+- **Контейнеризация** (Docker, Docker Compose)
+- **Оркестрация** (Kubernetes, k3s)
+- **Веб-сервер** (Nginx)
+- **CI/CD** (GitHub Actions)
+- **Деплой** (GitHub Pages, GHCR)
+- **Управление конфигурацией** (Ansible)
+- **Мониторинг** (Prometheus, Grafana)
+- **Система контроля версий** (Git, GitHub)
 
-## 🛠️ Стек
-Linux (Ubuntu 24.04), Bash, Nginx, Docker, GitHub Actions, GitHub Pages, Prometheus, Grafana.
+## 📂 Структура проекта
+├── ansible/              # Ansible playbooks
+├── kubernetes/           # Kubernetes manifests
+├── monitoring/           # Prometheus & Grafana configs
+├── scripts/              # Bash-скрипты автоматизации
+├── docs/                 # Статический сайт (GitHub Pages)
+└── logs/                 # Логи работы скриптов
 
 ## 🚀 Быстрый старт
-git clone https://github.com/crayze444/devops-scripts.git && cd devops-scripts && docker build -t my-site . && docker run -d -p 8080:80 my-site
+# Сайт в Docker
+docker build -t my-site . && docker run -d -p 8080:80 my-site
 
-## 🌐 Сайт
-[crayze444.github.io/devops-scripts](https://crayze444.github.io/devops-scripts/)
+# Мониторинг
+cd monitoring && docker compose up -d
+
+# Ansible (установка Nginx на 5 серверов)
+cd ansible && ansible-playbook -i ../ansible-lab/inventory.ini install-nginx.yml
+
+# Kubernetes (3 реплики сайта)
+kubectl apply -f kubernetes/my-site-deployment.yaml
+
+## 🌐 Живой сайт
+[https://crayze444.github.io/devops-scripts/](https://crayze444.github.io/devops-scripts/)
 
 ## 📊 Мониторинг
-Grafana: http://localhost:3000 (admin/admin)  
-Prometheus: http://localhost:9090/targets
+- Grafana: [http://localhost:3000](http://localhost:3000) (admin/admin)
+- Prometheus: [http://localhost:9090](http://localhost:9090)
 
-## 📝 Автоматизация
-- hello.sh — приветствие и инфо о системе.
-- install_nginx.sh — автоустановка Nginx.
-- logger.sh — логгер активностей (алиас log).
+## 📝 Скрипты
+- `hello.sh` — Информация о системе
+- `install_nginx.sh` — Автоустановка Nginx
+- `backup.sh` — Бэкап проекта
+- `check-site.sh` — Проверка доступности сайта
+- `logger.sh` — Логгер активностей (алиас `log`)
+- `docker-watch.sh` — Автоперезапуск контейнеров
+- `smart-push.sh` — Автокоммит и пуш изменений
 
 ---
 
